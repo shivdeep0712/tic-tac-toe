@@ -1,26 +1,8 @@
-import { useState } from 'react'
-import Square from './Square'
-const Board = () => {
-    const [squares,setSquares] = useState(Array(9).fill(null));
-    const [isXNext,setIsXNext] = useState(false);
-    const handleSquareClick = (clickedPosition)=>{
-        //if square is already filled, function will not work
-        if(squares[clickedPosition]){
-            return ;
-        }
-        
-        setSquares(currentSquares=>{
-            return currentSquares.map((squareValue,position)=>{
-                if(clickedPosition===position){
-                    return isXNext ? 'X' : 'O';
-                }
-                else
-                return squareValue;
-            })
 
-        });
-        setIsXNext(currentIsXNext => !currentIsXNext);
-    }
+import Square from './Square'
+// eslint-disable-next-line react/prop-types
+const Board = ({squares,handleSquareClick}) => {
+    
     const renderSquare = (position)=>{
         return( <Square value={squares[position]} onClick={()=>{
             handleSquareClick(position)}} />
