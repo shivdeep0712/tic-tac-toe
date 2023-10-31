@@ -7,7 +7,9 @@ const History = ({history,moveTo,currentMove})=>{
                 
                 history.map((_,index)=>(
                 <li key={index}>
-                      <button type="button" className={`btn-move ${currentMove===index ? 'active': ''}`} onClick={()=>moveTo(index)}>
+                      <button type="button" 
+                      className={`btn-move ${currentMove===index ? 'active': ''}`}
+                       onClick={()=>moveTo(index)}>
                         {index===0 ? 'Goto game start' : `go to move #${index}`}
                         </button>
                 </li>
